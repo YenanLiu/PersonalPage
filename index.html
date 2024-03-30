@@ -1,0 +1,370 @@
+
+<!doctype html>
+<html>
+
+<head>
+<title>Chen Liu</title>
+<link rel="icon" type="image/webp" href="imgs/icon.webp">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="keywords" content="Chen Liu, UQ, The University of Queensland, CS, PhD, 刘晨，昆士兰大学"> 
+<meta name="description" content="Chen Liu's home page">
+<link rel="stylesheet" href="css/jemdoc.css" type="text/css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-137722442-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- Show more content -->
+<script type="text/javascript">
+    function toggle_vis(id) {
+        // var e = document.getElementById(id);
+        var e = document.getElementsByClassName(id);
+        var showText = document.getElementById("showText");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].style.display == "none") {
+                e[i].style.display = "inline";
+                showText.innerHTML = "[Show less]";
+            } else {
+                e[i].style.display = "none";
+                showText.innerHTML = "[Show more]";
+            }
+        }
+    }
+
+    function toggle_research_vis(target, tabElement) {
+        var is_current_summary = 0;
+
+        var e = document.getElementsByClassName("research_summary");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                if (e[i].style.display == "inline") {
+                    is_current_summary = 1;
+                } else {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("progress_button");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target + "_button") {
+                if (is_current_summary == 0) {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("goal_tabs");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id != target + "_goal_tabs") {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_research_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "research_tab";
+        }
+        tabElement.className = "highlight_research_tab"
+    }
+
+    function toggle_goal_vis(id, goal_tabs_id, goal) {
+        var e = document.getElementById(id);
+        e.style.display = "none";
+        var goal_tabs = document.getElementById(goal_tabs_id);
+        goal_tabs.style.display = "inline";
+
+        var goal_tab = document.getElementById(goal + "_tab");
+        toggle_goal_progress_vis(goal_tab);
+        // add_goal_progress_div(goal);
+    }
+
+    function toggle_goal_progress_vis(tabElement) {
+        var target = tabElement.id;
+        target = target.substring(0, target.length - 4);
+
+        var e = document.getElementsByClassName("goal_progress");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                e[i].style.display = "inline";
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_goal_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "goal_tab";
+        }
+        tabElement.className = "highlight_goal_tab"
+
+        add_goal_progress_div(target);
+    }
+
+    function add_goal_progress_div(goal) {
+        var e = document.getElementById(goal);
+        if (e && e.children.length == 0) {
+            var children = Array.from(document.getElementsByClassName(goal));
+            for (var i = 0; i < children.length; i++) {
+                var cloned_div = children[i].cloneNode(true);
+                cloned_div.className = "publication_container";
+                e.appendChild(cloned_div);
+            }
+        }
+    }
+</script>
+
+</head>
+
+
+<body>
+
+<div id="layout-content" style="margin-top:25px">
+
+
+<table>
+	<tbody>
+		<tr>
+			<td width="75%">
+				<div id="toptitle">
+					<h1>Chen Liu (刘晨)<h1>
+				</div>
+
+                <h3 class="title">PhD Candidate</h3>
+
+				<p>
+                    Multi-modal Processing, Audio Visual Localization, Hairstyle Editing</br>
+                    School of Information Technology and Electrical Engineering (ITEE)</br>
+                    The University of Queensland (UQ)</br>
+					</br>
+                    Email: <a href="mailto:yenanliu36@gmail.com">yenanliu36 dot gmail dot com </a></br>
+					</br>
+                    [<a href="https://scholar.google.com/citations?hl=zh-CN&user=HmvE2WsAAAAJ">Google Scholar</a>][<a href="pdf/cv.pdf">CV</a>] </br>
+				</p>
+
+			</td>
+			<td width="25%">
+				<img src="imgs/profile.png" width="70%"/>
+			</td>
+		<tr>
+	</tbody>
+</table>
+
+<h2>Short Bio</h2> 
+
+<div style="display: flex; margin-bottom: -10px">
+    <p>
+	    I am an PhD candidate at The University of Queensland, supervised by <a href="https://sites.google.com/view/xinyus-homepage/Home">Dr. Xin Yu</a> and <a href="https://csenw.github.io/">Dr. Sen Wang</a>. My research focuses on Multi-modal Learning Audio-Visual Segmentation, and Hairstyle Editing. I received my master degree from The Northwest A&F University in June of 2022, supervised by <a href="https://baike.baidu.com/item/%E8%B5%B5%E6%98%A5%E6%B1%9F/1476430">Prof. Chunjiang Zhao</a>. At that time, my research topic is plant disease diagnosis. </br>
+
+        </br>
+        I work closely with <a href="https://researchers.uq.edu.au/researcher/38367" style="color: #FF6403;">Dr. Xin Yu</a>, who is an prominent researcher. Please <a href="mailto:xin.yu@uq.edu.au">contact him</a> if you are interested in working with us. </br>
+		</br>
+		Moreover, I collaborate closely with <a href="https://scholar.google.com/citations?user=NYLsVscAAAAJ">Lincheng Li</a>, <a href="https://gogoduck912.github.io/">Peike Li</a>, <a href="https://people.csiro.au/w/d/dadong-wang.aspx">Dadong Wang</a>, and <a href="https://xingqunqi-lab.github.io/QXQPage/">Xingqun Qi</a>. Very fortunate to encounter these great collaborators!
+		</br></br>
+		<b>I'd like to connect with anyone who's passionate about research. Excited for some great intellectual discussions!</b>
+    </p>
+</div>
+
+<h2>News</h2>
+
+<ul>
+	<li>
+        <div class="marker">[2024-03] Our team obtained first place in all five tracks at 6th ABAW Competition held by CVPR 2024.</div>
+    </li>
+    <li>
+        <div class="marker">[2024-02] One paper accepted to CVPR 2024.</div>
+    </li>
+	<li>
+        <div class="marker">[2024-03] I am an intern working at NetEase, working for 3D Surface Reconstruction and Expression Transferring.</div>
+    </li>
+	<li>
+        <div class="marker">[2023-12] One paper accepted to WACV 2024.</div>
+    </li>
+	<li>
+        <div class="marker">[2023-06] Invitated presentation at IJCNN Multimodal Synthetic Data for Deep Neural Networks (MSynD) workshop.</div>
+    </li>
+    <li>
+        <div class="marker">[2023-05] One paper accepted to ACM MM 2023.</div>
+    </li>
+    <li>
+        <div class="marker">[2023-03] One paper accepted to TVCJ. One paper accepted by CVPR 2023.</div>
+    </li>
+    </div>
+</ul>
+
+<div class="show_button">
+    <a href="javascript:toggle_vis('news')" id="showText">[Show more]</a>
+</div>
+
+
+<h2>Preprints
+    <span style="font-size: 50%;">(* denotes equal contribution)</span>
+</h2>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="paper_Img/TMM.jpg">
+    </div>
+    <div class="publication_title">
+        BAVS: bootstrapping audio-visual segmentation by integrating foundation knowledge</br>
+        <b>Chen Liu</b>, Peike Li, Hu Zhang, Lincheng Li, Zi Huang, Dadong Wang, Xin Yu</br>
+        [<a href="https://arxiv.org/pdf/2308.10175.pdf">Paper</a>][<a href="https://yenanliu.github.io/AVSS.github.io/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="paper_Img/EmoGesture.jpg">
+    </div>
+    <div class="publication_title">
+        Emotiongesture: Audio-driven diverse emotional co-speech 3d gesture generation</br>
+       Xingqun Qi*, <b>Chen Liu*</b>, Lincheng Li, Jie Hou, Haoran Xin, Xin Yu</br>
+        [<a href="https://arxiv.org/pdf/2305.18891v2.pdf">Paper</a>][<a href="https://xingqunqi-lab.github.io/Emotion-Gesture-Web/">Project Page</a>]
+    </div>
+</div>
+
+
+<h2>
+    Publications
+    <span style="font-size: 50%;">(* denotes equal contribution)</span>
+</h2>
+
+<div class="newline_bg">
+    <h3>2024</h3>
+</div>
+
+<div class="publication_container benchmarking_AVS">
+    <div class="publication_image">
+        <img src="paper_Img/cvpr24.jpg">
+    </div>
+    <div class="publication_title">
+        Benchmarking Audio Visual Segmentation for Long-Untrimmed Videos</br>
+        <b>Chen Liu</b>, Peike Li, Qingtao Yu, Hongwei Sheng, Dadong Wang, Lincheng Li2, Xin Yu
+</br>
+        CVPR 2024.</br>
+        (🔥Comming Soon!) </br>
+		[<a href="#">Paper</a>][<a href="#">Supplementary Material</a>][<a href="#">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container 3D_Point_SAM">
+    <div class="publication_image">
+        <img src="paper_Img/wacv.jpg">
+    </div>
+    <div class="publication_title">
+        When 3D Bounding-Box Meets SAM: Point Cloud Instance Segmentation with Weak-and-Noisy Supervision</br>
+        Qingtao Yu, Heming Du, <b>Chen Liu</b>, Xin Yu</br>
+        WACV 2024.</br>
+        [<a href="https://openaccess.thecvf.com/content/WACV2024/papers/Yu_When_3D_Bounding-Box_Meets_SAM_Point_Cloud_Instance_Segmentation_With_WACV_2024_paper.pdf">Paper</a>]
+    </div>
+</div>
+
+
+<div class="newline_bg">
+    <h3>2023</h3>
+</div>
+
+<div class="publication_container AVS_MS">
+    <div class="publication_image">
+        <img src="paper_Img/ACMMM.png">
+    </div>
+    <div class="publication_title">
+        Audio-Visual Segmentation by Exploring Cross-Modal Mutual Semantics</br>
+        <b>Chen Liu</b>, Peike Li, Xingqun Qi, Hu Zhang, Lincheng Li, Dadong Wang, Xin Yu</br>
+        ACM MM 2023.</br>
+        [<a href="https://arxiv.org/pdf/2307.16620.pdf">Paper</a>]
+</div>
+</div>
+
+<div class="publication_container Hairstyle_Editing">
+    <div class="publication_image">
+        <img src="paper_Img/TVCG.jpg">
+    </div>
+    <div class="publication_title">
+        Hairstyle editing via parametric controllable strokes</br>
+        Xinhui Song*, <b>Chen Liu*</b>, Youyi Zheng, Zunlei Feng, Lincheng Li, Kun Zhou, Xin Yu</br>
+        IEEE TVCG 2023.</br>
+        [<a href="https://openreview.net/pdf?id=xTgM7XLN9P">Paper</a>]
+    </div>
+</div>
+
+<div class="publication_container DIVER_GESTURE">
+    <div class="publication_image">
+        <img src="paper_Img/CVPR23.jpg">
+    </div>
+    <div class="publication_title">
+        Diverse 3D hand gesture prediction from body dynamics by bilateral hand disentanglement</br>
+        Xingqun Qi, <b>Chen Liu</b>, Muyi Sun, Lincheng Li, Changjie Fan, Xin Yu
+        CVPR 2023.</br>
+        [<a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Qi_Diverse_3D_Hand_Gesture_Prediction_From_Body_Dynamics_by_Bilateral_CVPR_2023_paper.pdf">Paper</a>]
+	</div>
+</div>
+
+<div class="newline_bg">
+    <h3>2022</h3>
+</div>
+
+<div class="publication_container EFDet">
+    <div class="publication_image">
+        <img src="paper_Img/EFDet.jpg">
+    </div>
+    <div class="publication_title">
+        EFDet: An efficient detection method for cucumber disease under natural complex environments</br>
+        <b>Chen Liu</b>, Huaji Zhu, Wang Guo, Xiao Han, Cheng Chen, Huarui Wu</br>
+        Computers and Electronics in Agriculture 2022.</br>
+        [<a href="https://www.sciencedirect.com/science/article/abs/pii/S0168169921003951">Paper</a>]
+	</div>
+</div>
+
+<div class="publication_container ADDLight">
+    <div class="publication_image">
+        <img src="paper_Img/ADDLight.jpg">
+    </div>
+    <div class="publication_title">
+        Addlight: An energy-saving adder neural network for cucumber disease classification</br>
+        <b>Chen Liu</b>, Chunjiang Zhao, Huarui Wu, Xiao Han, Shuqin Li</br>
+        Agriculture 2022.</br>
+        [<a href="https://www.mdpi.com/2077-0472/12/4/452">Paper</a>]
+    </div>
+</div>
+
+<h2>Competitions</h2>
+
+<ul>
+    <li>
+        <div class="marker">First Place of the 6th ABAW Competition</div> <div>CVPR, 2024</div>
+    </li>                                                                       
+    <li>                                                                        
+        <div class="marker">First Place of the Image Classification of Nutrient Deficiencies in Winter Wheat and Winter Rye</div> <div>ICCV, 2023</div>
+    </li>                                                                       
+    <li>                                                                        
+        <div class="marker">Second Place of the ChaLearn Sign Spotting Challenge Challenge</div> <div>ECCV, 2022</div>
+    </li>                                                                       
+</ul>
+ 
+<h2>Services</h2>
+
+<ul>                                                                
+    <li>
+        <div class="marker">Conference Reviewer: CVPR, ACM MM, AJCAI</div>
+    </li>                                                                       
+    <li>
+        <div class="marker">Journal Reviewer: TMM, TOMM</div>
+    </li>                                                                       
+</ul>
+
+</div>
+
+</div>
+</body>
+</html>
